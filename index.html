@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    align-items: center;
+    background-image: linear-gradient(to right, red , yellow);
+}
+
+button {
+  background-color: #ff9900; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border: black 2px solid;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+    border: white 5px solid;
+    box-shadow: 0px 0px 10px #333;
+}
+
+h1 {
+    font-size: 50px;
+    color: #fff;
+    border-radius: 5%;
+    box-shadow: 0px 0px 30px #333;
+    text-shadow: 0px 0px 30px #333;
+}
+
+.main {
+    margin: 100px 600px;
+    padding: 10px;
+    /* background-color: #33ccff; */
+    height: 750px;
+    border-radius: 2%;
+    /* box-shadow: 10px 10px 10px #888888; */
+    transition: background-color 1s;
+}
+
+img {
+    margin-bottom: 30px;
+    border-radius: 2%;
+    box-shadow: 0px 0px 30px #333;
+}
+
+/* video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -3;
+} */
+
+
+</style>
+</head>
+<body>
+
+<!-- <video playsinline autoplay muted loop poster="polina.jpg" id="bgvid">
+    <source src="3.mp4" type="video/mp4">
+</video> -->
+
+<div class="main">
+    <h1>THE NUN</h1>
+    <img id="imageChage" src="1.jpg" alt=""><br>
+
+    <button onclick="changeImg()">Change</button>
+</div>
+
+<script>
+function changeImg() {
+   var image = document.getElementById('imageChage');
+   var header = document.querySelector('h1');
+
+   if (image.src.match("1.jpg")) {
+    image.src = "2.jpg";
+    header.innerHTML = "THE TOY"
+   } else {
+    image.src = "1.jpg";
+    header.innerHTML = "THE NUN"
+   }
+}
+
+var background = document.querySelector(".main");
+var button = document.querySelector("button");
+
+
+function getRandomColor(){
+  var letters = "0123456789ABCDEF";
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random()*16)];
+  }
+  return color
+}
+
+function colorChange() {
+  colorInput = getRandomColor();
+  buttonColor = getRandomColor();
+  background.style.background = colorInput;
+  button.style.background = buttonColor;
+}
+
+// background-image: linear-gradient(to right, red , yellow);
+
+setInterval("colorChange()",2000);
+
+</script>
+
+</body>
+</html>
